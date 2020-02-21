@@ -178,9 +178,12 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
+        {# 渲染菜单栏 #}
         {% block main_menu %}
         {{ layout.menu() }}
         {% endblock %}
+
+        {# 以下菜单栏会自动收缩 #}
         <li>
           <a href="#">
             <i class="fa fa-envelope"></i> <span>Mailbox</span>
@@ -191,6 +194,7 @@
             </span>
           </a>
         </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Multilevel</span>
@@ -240,10 +244,8 @@
     {# store the jinja2 context for form_rules rendering logic #}
     {% set render_ctx = h.resolve_ctx() %}
 
-
-    {% block body %}
-
-    {% endblock body %}
+    {# body #}
+    {% block body %}{% endblock body %}
 
     {% if current_user.is_authenticated %}
   </div>
